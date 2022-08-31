@@ -8,19 +8,29 @@ const boredUrl = "http://www.boredapi.com/api/activity/"
 //DOM Selectors
 
 const mainDiv = document.querySelector("#main")
+mainDiv.style.textAlign = 'center'
 
 //Rendering
-
-function showActivity() {
-    const h3 = document.createElement('h3')
-    h3.innerText = "Pick Something to Do"
-    mainDiv.appendChild(h3)
-    h3.style.marginTop = "0"
-}
 
 function getActivity() {
     fetch("http://www.boredapi.com/api/activity/")
 .then(resp => resp.json())
-.then(activity => console.log(activity))
+.then(activity => showActivity(activity))
 }
 
+function showActivity(activity) {
+    mainDiv.innerHTML = `
+    <h2>${activity.activity}</h2>
+    <p>Price: ${activity.price}</p>
+    <p>Participants: ${activity.participants}
+    <p>Type of Activity: ${activity.type}
+    `    
+}
+
+function resetMainDiv() {
+    mainDiv.innerHTML = ''
+}
+
+function homePage() {
+    
+}
