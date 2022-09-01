@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    getActivity()
-    showActivity()
+    getActivity() 
+    homePage()
 })
 
 const boredUrl = "http://www.boredapi.com/api/activity/"
 
 //DOM Selectors
 
-const mainDiv = document.querySelector("#main")
-mainDiv.style.textAlign = 'center'
+const bodyDiv = document.querySelector("#activity")
+const button = document.querySelector('#reload-activity-button')
 
 //Rendering
 
@@ -19,18 +19,31 @@ function getActivity() {
 }
 
 function showActivity(activity) {
-    mainDiv.innerHTML = `
-    <h2>${activity.activity}</h2>
-    <p>Price: ${activity.price}</p>
-    <p>Participants: ${activity.participants}
-    <p>Type of Activity: ${activity.type}
-    `    
-}
+    
+    const h4 = document.getElementById("show-activity")
+    h4.innerText = activity.activity
+     
+   }
+
+
+
 
 function resetMainDiv() {
     mainDiv.innerHTML = ''
 }
 
 function homePage() {
-    
+    const h1 = document.createElement('h1')
+    h1.innerText = "Choose An Activity"
+    const p = document.createElement('p')
+    p.innerText = "Click on Get Activity to generate a random activity to do"
+
+    mainDiv.append(h1, p)
 }
+
+//Event Listeners
+
+button.addEventListener('click', showActivity)
+
+//Event Handlers
+
