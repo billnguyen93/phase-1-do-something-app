@@ -7,29 +7,30 @@ const boredUrl = "http://www.boredapi.com/api/activity/"
 
 //DOM Selectors
 
+const participantsLi = document.getElementById("participants")
+const h6 = document.getElementById("show-activity")
+const priceLi = document.getElementById("price")
 const bodyDiv = document.querySelector("#activity")
-const button = document.querySelector('#reload-activity-button')
+const button = document.querySelector('#new-activity')
 
 //Rendering
 
 function getActivity() {
- return fetch("http://www.boredapi.com/api/activity/")
-.then(resp => resp.json())
-.then(activity => showActivity(activity))
+    fetch(boredUrl)
+        .then(resp => resp.json())
+        .then(data => {
+            currentActivity = data
+            const activity = data.activity
+            h6.innerText = activity
+            const price = data.price
+            priceLi.innerText = "Price: " + price
+            const participants = data.participants
+            participantsLi.innerText = "Participants: " + participants
+        })
 }
 
-function showActivity(activity) {
-    
-    const h6 = document.getElementById("show-activity")
-    h6.innerText = activity.activity
-    const priceLi = document.getElementById("price")
-    priceLi.innerText = "Price: " + activity.price 
-    const participantsLi = document.getElementById("participants")
-    participantsLi.innerText = "Participants: " + activity.participants
-
-   }
-
 //Event Listeners
+button.addEventListener('click', getActivity)
 
 //Event Handlers
 

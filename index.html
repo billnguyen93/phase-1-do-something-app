@@ -17,16 +17,17 @@
         <div class="nav-wrapper container">
           <a href="#" class="brand-logo">Do Something</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">My Activities</a></li>
           </ul>
         </div>
       </nav>
 
-      
         <div id ="main" class="col s12 m6">
           <div class="card #ff8a80 red accent-1" >
             <div class="card-content white-text" >
               <span class="card-title">Pick an Activity to Do! </span>
               <p>Click the Get Activity button to generate a random activity</p>
+              <p>Liking an Activity will add it to the My Activities page</p>
             </div>
             <div class="card-action">
               <button id = "new-activity">Get Activity</button>
@@ -53,6 +54,21 @@
           </div>
         </div>
       
+        <div id="activity" class="col s12 m6">
+          <div class="card #ff8a80 red accent-1">
+            <div class="card-content white-text">
+              <form>
+                <label for="submitActivity">Add an Activity</label>
+                <input id="newActivity" type="text" placeholder="Enter Activity here"/>
+                <input type="submit" />
+              </form>
+            </div>
+            <div class="card-action">
+              
+            </div>
+          </div>
+        </div>
+       
 
     <script type="text/javascript" src="./src/index.js"></script>
 </body>
