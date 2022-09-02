@@ -1,17 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    getActivity() 
+    getActivity()
+   
     
 })
 
 const boredUrl = "http://www.boredapi.com/api/activity/"
 
 //DOM Selectors
-
+const bodyDiv = document.querySelector("#activity")
+const mainDiv = document.querySelector("#main")
+const formDiv = document.querySelector('#form-container')
+const button = document.querySelector('#new-activity')
 const participantsLi = document.getElementById("participants")
 const h6 = document.getElementById("show-activity")
 const priceLi = document.getElementById("price")
-const bodyDiv = document.querySelector("#activity")
-const button = document.querySelector('#new-activity')
+
+
 
 //Rendering
 
@@ -31,6 +35,7 @@ function getActivity() {
 
 //Event Listeners
 button.addEventListener('click', getActivity)
+
 
 //Event Handlers
 
