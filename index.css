@@ -2,10 +2,30 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    
   }
 
   #activity {
     display: flex;
     flex-flow: column;
     align-items: center;
+  }
+
+#form-container {
+  display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#my-activities {
+  display: block;
+  width: 25%
+  
+}
+
+
+.card-content{
+  text-align: center;
+  font-weight: bold;
+  font-family: cursive
   }
