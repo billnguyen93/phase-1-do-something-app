@@ -41,15 +41,30 @@ function renderActivity(data) {
     participantsLi.innerText = "Participants: " + participants
     
     likeBtn.addEventListener('click', () => {
-        let p = document.createElement("p")
-        p.innerText = activity
-        likedActivities.append(p)
-        p.addEventListener("click", () => {
-            p.innerHTML = ''
-        })
+        
+        
+        if (!activityInList(activity)){
+            let p = document.createElement("p")
+            p.innerText = activity
+            likedActivities.append(p)
+            p.addEventListener("click", () => {
+                p.remove()
+            })
+        } 
+        
+        activityInList()
     })
     console.log(data)
     
+}
+
+function activityInList(activity) {
+    const pTag = Array.from(document.querySelectorAll("#liked-activities p"))
+      return pTag.some(tag => {
+        return tag.innerText === activity
+    })
+
+     
 }
 
 function submitActivity() {
