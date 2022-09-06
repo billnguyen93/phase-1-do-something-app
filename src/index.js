@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     getActivity()
     submitActivity()
-    removeActivity()
+    
 })
 
 const boredUrl = "http://www.boredapi.com/api/activity/"
@@ -40,7 +40,14 @@ function renderActivity(data) {
     const participants = data.participants
     participantsLi.innerText = "Participants: " + participants
     
-    likeBtn.addEventListener('click', handlelikeBtn)
+    likeBtn.addEventListener('click', () => {
+        let p = document.createElement("p")
+        p.innerText = activity
+        likedActivities.append(p)
+        p.addEventListener("click", () => {
+            p.innerHTML = ''
+        })
+    })
     console.log(data)
     
 }
@@ -57,24 +64,21 @@ function submitActivity() {
 //Event Listeners
 
 button.addEventListener('click', getActivity)
-p.addEventListener('click', removeActivity)
+
 
 
 //Event Handlers
 
 function handleActivity(activity) {
-    p.textContent = `${activity}`
-    likedActivities.appendChild(p)
-    
+    let p2 = document.createElement("p")
+    p2.textContent = `${activity}`
+    likedActivities.appendChild(p2)
+
+    p2.addEventListener("click", () => {
+        p2.innerHTML = ''
+    })
 }
 
-function handlelikeBtn(data) {
-    p.innerText = data.activity          
-    likedActivities.append(p)
-    
-}
 
-function removeActivity() {
-    p.innerHTML = ''
-    
-}
+
+
