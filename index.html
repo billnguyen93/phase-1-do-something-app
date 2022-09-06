@@ -25,10 +25,15 @@
         <div id ="main" class="row s12 m6">
           <div id = "my-activities"  class="row s12 m6">
             <div class="card #ff8a80 red accent-1" >
-              <div class="card-content white-text" >
+              <p id = "add-activity"></p>
+              <div id = "liked-activities" class="card-content white-text" >
+                  
                 <span id = "title" class="card-title">My Activities</span>
-  
-                
+                  
+                    <ul>
+                      <li id = "liked-activity"></li>
+                      <li id = "liked-participants"></li>
+                    </ul>
               </div>
               <div class="card-action">
                 
@@ -40,6 +45,7 @@
               <span id = "title" class="card-title">Pick an Activity to Do! </span>
 
               <p>Click the Get Activity button to generate a random activity</p>
+              <br>
               <p>Liking an Activity will add it to the My Activities page</p>
             </div>
             <div class="card-action">
@@ -59,7 +65,7 @@
               <li id ="price"></li>
               <li id ="participants"></li>
             </ul>
-            <button id = "like-button">Like</button>
+            <button id = "like-button" >Like</button>
             </div>
             <div class="card-action">
               
@@ -70,7 +76,7 @@
         <div id ="form-container" class="col s12 m6">
           <div class="card #ff8a80 red accent-1">
             <div class="card-content white-text">
-              <form>
+              <form id = "activity-form">
                 <label for="submitActivity">Add an Activity</label>
                 <input id="newActivity" type="text" placeholder="Enter Activity here"/>
                 <input type="submit" />
