@@ -14,7 +14,7 @@ const mainDiv = document.querySelector("#main")
 const formDiv = document.querySelector('#form-container')
 
 const button = document.querySelector('#new-activity')
-
+const likeBtn = document.getElementById('like-button')
 
 const participantsLi = document.getElementById("participants")
 const h6 = document.getElementById("show-activity")
@@ -40,8 +40,8 @@ function renderActivity(data) {
     const participants = data.participants
     participantsLi.innerText = "Participants: " + participants
     
-    const likeBtn = document.getElementById('like-button')
     likeBtn.addEventListener('click', handlelikeBtn)
+    console.log(data)
     
 }
 
@@ -51,11 +51,6 @@ function submitActivity() {
     handleActivity(e.target.newActivity.value)  
     document.getElementById("activity-form").reset()
   })
-    
-}
-
-function removeActivity() {
-    p.innerHTML = ''
     
 }
 
@@ -76,7 +71,10 @@ function handleActivity(activity) {
 function handlelikeBtn(data) {
     p.innerText = data.activity          
     likedActivities.append(p)
-    console.log(data)
+    
 }
 
-
+function removeActivity() {
+    p.innerHTML = ''
+    
+}
