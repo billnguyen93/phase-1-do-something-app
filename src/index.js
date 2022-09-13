@@ -12,7 +12,6 @@ const mainDiv = document.querySelector("#main")
 const formDiv = document.querySelector('#form-container')
 
 const button = document.querySelector('#new-activity')
-const likeBtn = document.getElementById('like-button')
 
 const participantsLi = document.getElementById("participants")
 const h6 = document.getElementById("show-activity")
@@ -33,20 +32,21 @@ fetch(boredUrl)
 }
 
 function renderActivity(data) {
-    const activities = []
-    activities.push(data)
+    bodyDiv.innerHTML = ''
+    h6.innerText = data.activity
+    console.log(data)
+    priceLi.innerText = "Price: " + data.price
+    participantsLi.innerText = "Participants: " + data.participants
     
-   activities.forEach(activity => {
-    h6.innerText = activity.activity
-    priceLi.innerText = "Price: " + activity.price
-    participantsLi.innerText = "Participants: " + activity.participants
-    activity.id = activity.key
+    const likeButton = document.createElement("button")
+    likeButton.innerText = "Like"
+    bodyDiv.append(likeButton)
 
     // Like Button 
-    likeBtn.addEventListener('click', () => {
+    likeButton.addEventListener('click', () => {
         if (!activityInList(activity)) {
             let p = document.createElement("p")
-            p.innerText = activity.activity
+            p.innerText = data.activity
             likedActivities.append(p)
 
             p.addEventListener('click', () => {
@@ -54,7 +54,7 @@ function renderActivity(data) {
             })
         }
     })
-   })   
+      
         
 }
 
