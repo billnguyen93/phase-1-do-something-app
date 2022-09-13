@@ -60,7 +60,6 @@ function renderActivity(data) {
 
 function activityInList(activity) {
     const pTag = Array.from(document.querySelectorAll("#liked-activities p"))
-      
     return pTag.some(tag => {
         return tag.innerText === activity.activity
         
