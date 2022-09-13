@@ -44,6 +44,7 @@ function renderActivity(data) {
     participantsLi.innerText = "Participants: " + activity.participants
     activity.id = activity.key
 
+    // Like Button 
     likeBtn.addEventListener('click', () => {
         if (!activityInList(activity)) {
             let p = document.createElement("p")
