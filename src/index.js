@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-const boredUrl = "http://www.boredapi.com/api/activity/"
+
 
 //DOM Selectors
 
@@ -20,51 +20,53 @@ const participantsLi = document.getElementById("participants")
 const h6 = document.getElementById("show-activity")
 const priceLi = document.getElementById("price")
 const likedActivities = document.getElementById("liked-activities")
-const p = document.getElementById("add-activity")
 
 const activityForm = document.querySelector("#activity-form")
 
 //Rendering
 
+const boredUrl = "http://www.boredapi.com/api/activity/"
+      
 function getActivity() {
-    return fetch(boredUrl)
-        .then(resp => resp.json())
-        .then(data => renderActivity(data))
+fetch(boredUrl)
+ .then(resp => resp.json())
+ .then(data => renderActivity(data))
+
 }
 
 function renderActivity(data) {
-    const activity = data.activity
-    h6.innerText = activity
-    const price = data.price
-    priceLi.innerText = "Price: " + price
-    const participants = data.participants
-    participantsLi.innerText = "Participants: " + participants
+    const activities = []
+    activities.push(data)
     
+   activities.forEach(activity => {
+    h6.innerText = activity.activity
+    priceLi.innerText = "Price: " + activity.price
+    participantsLi.innerText = "Participants: " + activity.participants
+    activity.id = activity.key
+
     likeBtn.addEventListener('click', () => {
-        
-        
-        if (!activityInList(activity)){
+        if (!activityInList(activity)) {
             let p = document.createElement("p")
-            p.innerText = activity
+            p.innerText = activity.activity
             likedActivities.append(p)
-            p.addEventListener("click", () => {
+
+            p.addEventListener('click', () => {
                 p.remove()
             })
-        } 
-        
-        activityInList()
+        }
     })
-    console.log(data)
-    
+   })   
+        
 }
 
 function activityInList(activity) {
     const pTag = Array.from(document.querySelectorAll("#liked-activities p"))
-      return pTag.some(tag => {
-        return tag.innerText === activity
+      
+    return pTag.some(tag => {
+        return tag.innerText === activity.activity
+        
     })
-
-     
+    
 }
 
 function submitActivity() {
@@ -80,8 +82,6 @@ function submitActivity() {
 
 button.addEventListener('click', getActivity)
 
-
-
 //Event Handlers
 
 function handleActivity(activity) {
@@ -93,7 +93,5 @@ function handleActivity(activity) {
         p2.innerHTML = ''
     })
 }
-
-
 
 
