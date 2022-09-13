@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-
-
 //DOM Selectors
 
 const activityDiv = document.querySelector("#my-activities")
