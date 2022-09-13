@@ -70,6 +70,10 @@ function activityInList(activity) {
     
 }
 
+//Event Listeners
+
+button.addEventListener('click', getActivity)
+
 function submitActivity() {
     activityForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -78,10 +82,6 @@ function submitActivity() {
   })
     
 }
-
-//Event Listeners
-
-button.addEventListener('click', getActivity)
 
 //Event Handlers
 
