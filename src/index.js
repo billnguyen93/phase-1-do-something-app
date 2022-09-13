@@ -44,27 +44,18 @@ function renderActivity(data) {
 
     // Like Button 
     likeButton.addEventListener('click', () => {
-        if (!activityInList(activity)) {
-            let p = document.createElement("p")
+        let p = document.createElement("p")
             p.innerText = data.activity
             likedActivities.append(p)
 
+            if (p.innerText === data.activity) {
+                likeButton.disabled = true
+            }
+
             p.addEventListener('click', () => {
                 p.remove()
-            })
-        }
-    })
-      
-        
-}
-
-function activityInList(activity) {
-    const pTag = Array.from(document.querySelectorAll("#liked-activities p"))
-    return pTag.some(tag => {
-        return tag.innerText === activity.activity
-        
-    })
-    
+            })   
+    })          
 }
 
 //Event Listeners
