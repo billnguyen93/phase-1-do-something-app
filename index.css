@@ -5,11 +5,11 @@
     
   }
 
-  #activity {
+ #activity {
     display: flex;
     flex-flow: column;
     align-items: center;
-  }
+}
 
 #form-container {
   display: flex;
@@ -23,9 +23,12 @@
   
 }
 
+#activity-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 
 .card-content{
-  text-align: center;
- 
-  
-  }
+  text-align: center;  
+}
