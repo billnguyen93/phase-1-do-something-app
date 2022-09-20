@@ -29,6 +29,10 @@
   align-items: center;
 }
 
+#main-title {
+  font-size: 45px
+}
+
 .card-content{
   text-align: center;  
 }
