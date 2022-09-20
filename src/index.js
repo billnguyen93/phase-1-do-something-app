@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     getActivity()
+    renderActivity()
     submitActivity()
     
 })
@@ -84,5 +85,4 @@ function handleActivity(activity) {
         p2.innerHTML = ''
     })
 }
-
 
