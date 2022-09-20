@@ -16,6 +16,7 @@ const button = document.querySelector('#new-activity')
 const participantsLi = document.getElementById("participants")
 const h6 = document.getElementById("show-activity")
 const priceLi = document.getElementById("price")
+const typeLi = document.getElementById("type")
 const likedActivities = document.getElementById("liked-activities")
 
 const activityForm = document.querySelector("#activity-form")
@@ -37,6 +38,7 @@ function renderActivity(data) {
     console.log(data)
     priceLi.innerText = "Price: " + data.price
     participantsLi.innerText = "Participants: " + data.participants
+    typeLi.innerText = "Type: " + data.type
     
     const likeButton = document.createElement("button")
     likeButton.innerText = "Like"
