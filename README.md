@@ -2,7 +2,7 @@
 * The Do Something App is a single page web app that will generate a random activity for the user to do and allows them to Like and Submit their own activities.
 * The app fetches from a public API called boredAPI
 * Users are able to generate new activities if they do not like the current generated activity. 
-* Generate a new activity by clicking the "Get Activity" button on the page.
+* Generate new activities by clicking the "Get Activities" button on the page.
 
 * Users are able to Like an activity
 * Clicking the Like button will add the current activity to the My Activities list.

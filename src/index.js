@@ -54,6 +54,7 @@ function renderActivities(array) {
         const typeLi = document.createElement("li")
         
         h6.innerText = data.activity
+        ul.style.border = "dotted"
         priceLi.innerText = "Price: " + data.price
         participantsLi.innerText = "Participants: " + data.participants
         typeLi.innerText = "Type: " + data.type
