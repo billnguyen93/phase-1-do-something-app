@@ -60,7 +60,7 @@ function renderActivities(array) {
         typeLi.innerText = "Type: " + data.type
         
         const likeButton = document.createElement("button")
-        likeButton.innerText = "Like"
+        likeButton.innerText = '❤'
     
 
     // Like Button 
